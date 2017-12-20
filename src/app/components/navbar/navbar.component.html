@@ -1,0 +1,23 @@
+<!-- example 2 - using auto margins -->
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand text-white">MEAN Auth App yo</a>
+    <div class="navbar-collapse collapse dual-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+          </ul>
+    </div>
+    <!--<a class="navbar-brand d-flex mx-auto" href="#">Navbar 2</a>-->
+    <div class="navbar-collapse collapse dual-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a *ngIf="authService.loggedIn()" class="nav-link" [routerLink]="['/dashboard']" [routerLinkActive]="['active']" >DASHBOARD</a></li>
+                <li class="nav-item"><a *ngIf="authService.loggedIn()" class="nav-link" [routerLink]="['/profile']" [routerLinkActive]="['active']">PROFILE</a></li>
+
+                <li class="nav-item"><a *ngIf="!authService.loggedIn()" class="nav-link" [routerLink]="['/login']" [routerLinkActive]="['active']">LOGIN</a></li>
+                <li class="nav-item"><a *ngIf="!authService.loggedIn()" class="nav-link" [routerLink]="['/register']" [routerLinkActive]="['active']">REGISTER</a></li>
+                <li class="nav-item"><a *ngIf="authService.loggedIn()" class="nav-link" (click)="onLogoutClick()" href="#">LOGOUT</a></li>
+              </ul>
+    </div>
+</nav>
